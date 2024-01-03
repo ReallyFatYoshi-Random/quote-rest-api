@@ -11,6 +11,11 @@ Open your terminal.
 git clone https://github.com/ReallyFatYoshi-Random/quotes-rest-api.git
 ```
 
+### Open Repository
+```sh
+cd quotes-rest-api
+```
+
 ### Installation Dependancies
 ```sh
 npm install
