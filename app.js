@@ -1,9 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import cors from "express-cors";
 import express from "express";
 import swaggerUi from "swagger-ui-express";
+import cors from 'cors';
 
 import swagger from "./swagger.json" assert { type: "json" };
 import quotes from "./resources/quotes.json" assert { type: "json" };
@@ -22,7 +22,6 @@ const pictures = fs.readdirSync(path.join(IMAGE_PATH));
 
 app.use(express.static("resources/images"));
 app.use(cors());
-
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swagger));
 
 app.get("/api/random", (_, res) => {
