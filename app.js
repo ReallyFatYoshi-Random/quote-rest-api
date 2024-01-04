@@ -3,6 +3,10 @@ import path from "node:path";
 
 import cors from "express-cors";
 import express from "express";
+import swaggerUi from "swagger-ui-express";
+
+import swagger from "./swagger.json" assert { type: "json" };
+import quotes from "./resources/quotes.json" assert { type: "json" };
 
 async function sleep(ms) {
   return new Promise((resolve) => setTimeout(() => resolve(), ms));
@@ -12,14 +16,14 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 const BASE_PATH = path.join(process.cwd(), "resources");
-const QUOTE_PATH = path.join(BASE_PATH, "quotes.json");
 const IMAGE_PATH = path.join(BASE_PATH, "images");
 
-const quotes = JSON.parse(fs.readFileSync(QUOTE_PATH));
 const pictures = fs.readdirSync(path.join(IMAGE_PATH));
 
 app.use(express.static("resources/images"));
 app.use(cors());
+
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swagger));
 
 app.get("/api/random", (_, res) => {
   res.json({ message: quotes[~~(Math.random() * quotes.length)] });
@@ -36,7 +40,7 @@ app.get("/api/rocket/async", async (_, res) => {
 });
 
 app.all("*", (_, res) => {
-  res.json({ message: "/api/random" });
+  res.redirect("/docs");
 });
 
 app.listen(PORT, () => {
