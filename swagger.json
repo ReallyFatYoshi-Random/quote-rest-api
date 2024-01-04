@@ -1,0 +1,93 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Quotes API",
+    "description": "Quotes API allows you to get random quotes of the worlds most successful people.",
+    "contact": {
+      "email": "contact@fatyoshi.tk"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://quotes-rest-api.vercel.app/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "documentation",
+      "externalDocs": {
+        "description": "view github",
+        "url": "https://github.com/ReallyFatYoshi-Random/quotes-rest-api"
+      }
+    }
+  ],
+  "paths": {
+    "/api/random": {
+      "get": {
+        "tags": [
+          "documentation"
+        ],
+        "summary": "Get random quote.",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cat": {
+      "get": {
+        "tags": [
+          "documentation"
+        ],
+        "summary": "Gets a random cat picture.",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Picture"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+          }
+        }
+      },
+      "Picture": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string",
+            "example": "http://example.com/cat.png"
+          }
+        }
+      }
+    }
+  }
+}
