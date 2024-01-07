@@ -1,27 +1,32 @@
+> [!NOTE]
+> To run this application you'll need NodeJS, Git and NPMJS installed on your machine.
+
 # Quotes Rest Api
+An open source quotes Rest API, that can be used the get
 
-> NOTE:
-> You need NodeJS version 1.16.X or higher to run this application.
-
-## Getting started
+## Run project locally
 Open your terminal.
 
-### Clone Repository
-```sh
-git clone https://github.com/ReallyFatYoshi-Random/quotes-rest-api.git
-```
+1. Clone repository
+    ```sh
+    git clone https://github.com/ReallyFatYoshi-Random/quotes-rest-api.git
+    ```
 
-### Open Repository
-```sh
-cd quotes-rest-api
-```
+2. Open repository
+    ```sh
+    cd quotes-rest-api
+    ```
 
-### Installation Dependancies
-```sh
-npm install
-```
+3. Install dependancies
+    ```sh
+    npm install
+    ```
 
-### Run the application
-```sh
-npm run start
-```
+4. Run the application
+    ```sh
+    npm run start
+    ```
+
+## Authors
+
+* [ReallyFatYoshi](https://github.com/ReallyFatYoshi)
